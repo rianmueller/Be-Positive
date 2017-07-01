@@ -9,7 +9,9 @@ class Donor extends Person
   public static inline var DONATION_TIME:Int    = 10000; // ms
 
   public function new(main:MainScene){
-    super(main);
+    // for every patient, there's a donor
+    // donor blood is weighted
+    super(main, main.blood_tracker.next_donor);
 
     sprite.add(IDLE, toGenderGFX([GFX_IDLE]) );
     sprite.add(YAY, toGenderGFX([GFX_YAY]) );

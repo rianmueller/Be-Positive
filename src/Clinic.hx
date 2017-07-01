@@ -3,16 +3,7 @@ import com.haxepunk.graphics.Text;
 
 using BloodType;
 
-typedef Bank = {
-  var AB_POS:Int; // units
-  var AB_NEG:Int;
-  var A_POS:Int;
-  var A_NEG:Int;
-  var B_POS:Int;
-  var B_NEG:Int;
-  var O_POS:Int;
-  var O_NEG:Int;
-}
+typedef Bank = BloodTypeCounter<Int>;
 
 class Clinic extends Entity
 {
@@ -20,7 +11,7 @@ class Clinic extends Entity
   public static inline var Y:Float = 200;
   public static inline var DOOR_X:Float = 470.0;
   public static inline var DOOR_Y:Float = 230.0;
-  private static inline var DEFAULT_INITIAL_STOCK:Int = 5;
+  private static inline var DEFAULT_INITIAL_STOCK:Int = 2;
 
   private var main:MainScene;
   private var bank:Bank;
@@ -46,7 +37,7 @@ class Clinic extends Entity
   public function new(main:MainScene){
     this.main = main;
 
-    bank = {
+    this.bank = {
       AB_POS : DEFAULT_INITIAL_STOCK,
       AB_NEG : DEFAULT_INITIAL_STOCK,
       A_POS : DEFAULT_INITIAL_STOCK,
@@ -168,7 +159,5 @@ class Clinic extends Entity
     // increase bank count
     increase_blood_inventory(donor.blood_type);
   }
-
-
 
 }
