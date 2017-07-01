@@ -1,5 +1,5 @@
 BloodType = {
-  
+
   AB_POS : "AB_POS",
   AB_NEG : "AB_NEG",
   A_POS  : "A_POS",
@@ -12,7 +12,7 @@ BloodType = {
 };
 
 BloodTransfusionRules = {
-  
+
   /**
    * Set the simulation speed.
    * @type {Number} : Valid values between 1 and 200
@@ -21,7 +21,7 @@ BloodTransfusionRules = {
 
   /**
    * returns BloodType, or false to give no BloodType
-   * 
+   *
    * @name receive_patient
    * @param {Bank} blood_inventory
    * @param {Patient} patient
@@ -31,7 +31,7 @@ BloodTransfusionRules = {
    *   gender : String, (MALE,FEMALE)
    *   blood_type : String (BloodType)
    * }
-   * 
+   *
    * Bank properties {
    *   AB_POS : Integer,
    *   AB_NEG : Integer,
@@ -42,11 +42,11 @@ BloodTransfusionRules = {
    *   O_POS  : Integer,
    *   O_NEG  : Integer
    * }
-   * 
+   *
    */
 
   receive_patient : function (blood_inventory, patient) {
-    
+
     // give a random blood type to anyone
     // very bad idea!
     return [
