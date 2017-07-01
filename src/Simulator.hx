@@ -15,6 +15,7 @@ class Simulator
 {
   private static inline var MAX_SIMULATION_SPEED:Int = 10000;
   private static inline var DEFAULT_SIMULATION_SPEED:Float = 50.0;
+  private static inline var SPAWN_RATE:Int = 20;
   private var simulation_speed:Float;
 
   private var main:MainScene;
@@ -50,7 +51,7 @@ class Simulator
       new_speed = 1.0;
     }
     simulation_speed = new_speed;
-    
+
     ticker = new Timer( Std.int( MAX_SIMULATION_SPEED / simulation_speed ) );
     ticker.run = tick;
   }
@@ -58,8 +59,9 @@ class Simulator
   private inline function tick():Void
   {
     age++;
-    main.spawner(age);
-
+    if( Std.random(SPAWN_RATE) == 0 ){
+      main.spawner(age);
+    }
   }
 
 }
