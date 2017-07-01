@@ -33,11 +33,11 @@ class Person extends Entity
   private var blood_badge_text:Text;
   private var blood_badge:Entity;
 
-  public function new(main:MainScene){
+  public function new(main:MainScene, blood_type:BloodType){
     this.main = main;
     this.gender = (Std.random(2) == 0)? Gender.MALE : Gender.FEMALE ;
     this.move_speed = DEFAULT_MOVESPEED;
-    this.blood_type = Type.allEnums(BloodType)[ Std.random(Type.allEnums(BloodType).length-1) ]; // -1 to prevent NULL
+    this.blood_type = blood_type;
     this.sprite = new Spritemap(GFX_PATH, 72, 72, sprite_loaded);
 
     this.blood_badge_text = new Text(badge_text(this.blood_type), 0, 0, null, null, {

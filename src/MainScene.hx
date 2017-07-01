@@ -25,11 +25,15 @@ class MainScene extends Scene
   private var simulator:Simulator;
   private var patients:List<Patient>;
   public var donors:List<Donor>;
+  public var blood_tracker:BloodTracker;
+  public var spawn_tracker:SpawnTracker;
 
   public var clinic:Clinic;
 
   public function new()
   {
+    blood_tracker = new BloodTracker();
+    spawn_tracker = new SpawnTracker();
     patients = new List<Patient>();
     donors = new List<Donor>();
 
@@ -65,11 +69,7 @@ class MainScene extends Scene
   public function spawner(age:Int):Void
   {
     // randomly spawn patients and donors
-    if( Std.random( SPAWN_PATIENT_RATE ) == 0 ){
-      spawn(Patient);
-    }else if( Std.random( SPAWN_DONOR_RATE ) == 0 ){
-      spawn(Donor);
-    }
+    spawn(spawn_tracker.next);
   }
 
   public inline function despawn(person:Person):Void

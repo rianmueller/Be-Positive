@@ -22,7 +22,10 @@ class Patient extends Person
   private var denied_transfuions:Int;
 
   public function new(main:MainScene){
-    super(main);
+    // for every patient, there's a donor
+    // donor blood is weighted
+
+    super(main, main.blood_tracker.next_patient);
 
     sprite.add(SICK_BEFORE, toGenderGFX([GFX_SICK_BEFORE]) );
     sprite.add(HEALTHY_AFTER, toGenderGFX([GFX_HEALTHY_AFTER]) );
