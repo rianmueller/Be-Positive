@@ -25,11 +25,13 @@ class MainScene extends Scene
   private var simulator:Simulator;
   private var patients:List<Patient>;
   public var donors:List<Donor>;
+  public var blood_tracker:BloodTracker;
 
   public var clinic:Clinic;
 
   public function new()
   {
+    blood_tracker = new BloodTracker();
     patients = new List<Patient>();
     donors = new List<Donor>();
 
